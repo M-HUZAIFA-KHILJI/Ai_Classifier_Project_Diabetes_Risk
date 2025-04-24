@@ -1,0 +1,113 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: #f9fbfd;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 150px 10px;
+    background-color: #007bff;
+    color: white;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+
+
+header img { /* Targeting the img tag directly within the header */
+    width: 7%; /* Adjust this percentage as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 20px auto 10px auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 20px;
+}
+
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+input, select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    background: #fefefe;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+button[type="submit"] {
+    grid-column: span 2;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 420px ;
+    margin-right: 60px ;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+#prediction_result {
+    margin-top: 30px;
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 700px;
+    width: 90%;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-size: 0.9em;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Risk Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="intro">
+            <img src="{{ url_for('static', filename='images/logo.jpg') }}" alt="My Logo" class="logo">
+            <h1>Diabetes Risk Analyzer</h1>
+            <p>Developed by MUHAMMAD HUZAIFA KHILJI, a researcher in Data Science and a Django/Flask Developer dedicated to building intelligent applications.</p>
+    
+           
+        </div>
+    
+        <div class="app-description">
+            <h2>Assess Your Diabetes Risk</h2>
+            <p>Enter your common health details to receive a personalized diabetes risk estimate from our advanced algorithmic approach, helping you take proactive steps for your health.</p>
+<p class="action-prompt">Analyze your diabetes risk by entering your health details below.</p>
+        </div>
+    </header>
+
+    <main>
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label for="age">👶 Age (years):</label>
+                <input type="number" id="age" name="age" min="0" max="120" placeholder="0 - 120" required>
+            </div>
+            <div class="form-group">
+                <label for="bmi">⚖️ BMI (kg/m²):</label>
+                <input type="number" step="0.1" id="bmi" name="bmi" min="10" max="60" placeholder="10 - 60" required>
+            </div>
+            <div class="form-group">
+                <label for="hba1c_level">🧪 HbA1c Level (%):</label>
+                <input type="number" step="0.1" id="hba1c_level" name="hba1c_level" min="3.0" max="15.0" placeholder="3.0 - 15.0" required>
+            </div>
+            <div class="form-group">
+                <label for="blood_glucose_level">🩸 Blood Glucose (mg/dL):</label>
+                <input type="number" id="blood_glucose_level" name="blood_glucose_level" min="50" max="400" placeholder="50 - 400" required>
+            </div>
+            <div class="form-group">
+                <label for="hypertension">❤️ Hypertension:</label>
+                <select id="hypertension" name="hypertension" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="heart_disease">💓 Heart Disease:</label>
+                <select id="heart_disease" name="heart_disease" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gender">🚻 Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="smoking_history">🚬 Smoking History:</label>
+                <select id="smoking_history" name="smoking_history" required>
+                    <option value="" disabled selected>Select</option>
+                    <option value="never">Never</option>
+                    <option value="formerly smoked">Formerly Smoked</option>
+                    <option value="no info">No Info</option>
+                    <option value="not current">Not Current</option>
+                    <option value="smokes">Smokes</option>
+                </select>
+            </div>
+            <button type="submit">🧠 Predict Risk</button>
+        </form>
+
+        <div id="prediction_result">
+            {% if prediction %}
+                <h2>Prediction Result:</h2>
+                <p>{{ prediction }}</p>
+            {% endif %}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Diabetes Predictor | HealthCare Ai App | M.H.K Technologies  </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
